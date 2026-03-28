@@ -105,8 +105,3 @@ AI-Exam-Trainer/
 Python, Google Gemini API (gemini-2.5-flash), google-genai SDK, Streamlit, ChromaDB, Tavily, pypdf, python-dotenv
 ```
 
-Create a `README.md` file in your exam_trainer folder, paste this in, save it, then push to GitHub:
-```
-git add .
-git commit -m "Add README"
-git push
