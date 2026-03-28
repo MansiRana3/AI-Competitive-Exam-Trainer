@@ -2,6 +2,7 @@
 
 A web app that helps you practice for GATE, CAT, SSB, and UPSC with AI examiners — powered by Google's Gemini AI. Built with a Streamlit UI, RAG for study material Q&A, and an Agent for real-time current affairs.
 
+- Live Link -https://ai-competitive-exam-trainer-nk3tq5u4lddxjqyrgfvqzc.streamlit.app/
 ---
 
 ## What it does
