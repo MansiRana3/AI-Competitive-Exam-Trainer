@@ -5,31 +5,43 @@ from personas.gate import GATE
 from personas.cat import CAT
 from personas.ssb import SSB
 from personas.upsc import UPSC
+from personas.ai_engineer import AI_ENGINEER
+from personas.software_engineer import SOFTWARE_ENGINEER
+from personas.devops import DEVOPS
+from personas.backend import BACKEND
+from personas.data_scientist import DATA_SCIENTIST
 from prompts.system_prompt import build_system_prompt
 from rag import load_pdf, split_into_chunks, create_collection, search_collection
 from agent import search_web, needs_web_search
-
 PERSONAS = {
+    "── COMPETITIVE EXAMS ──": None,
     "GATE CS/IT 💻": GATE,
     "CAT/MBA 📊": CAT,
     "SSB Interview 🎖️": SSB,
     "UPSC Civil Services 🏛️": UPSC,
+    "── JOB INTERVIEWS ──": None,
+    "AI/ML Engineer 🤖": AI_ENGINEER,
+    "Software Engineer 💻": SOFTWARE_ENGINEER,
+    "DevOps Engineer ⚙️": DEVOPS,
+    "Backend Developer 🔧": BACKEND,
+    "Data Scientist 📊": DATA_SCIENTIST,
 }
 
 st.set_page_config(page_title="AI Exam Trainer", page_icon="🎯")
 st.title("🎯 AI Competitive Exam Trainer")
-st.caption("Practice for GATE, CAT, SSB, and UPSC with AI examiners")
+st.caption("Practice for Exams and Interviews with AI examiners")
 
 # Sidebar
+# Sidebar
 with st.sidebar:
-    st.header("🎯 Exam Trainer")
-    persona_name = st.selectbox("Select your exam", list(PERSONAS.keys()))
+    st.header("🎯 Exam & Interview Trainer")
+    options = [k for k in PERSONAS.keys() if PERSONAS[k] is not None]
+    persona_name = st.selectbox("Select your exam or interview", options)
     persona = PERSONAS[persona_name]
     st.divider()
     topic = st.selectbox("Select a topic", persona["topics"])
     st.divider()
     uploaded_file = st.file_uploader("Upload study material (optional)", type="pdf")
-
 # Initialize session state
 if "messages" not in st.session_state:
     st.session_state.messages = []
