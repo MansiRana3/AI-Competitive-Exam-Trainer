@@ -1,11 +1,15 @@
 from config import GEMINI_API_KEY, GEMINI_MODEL, MAX_OUTPUT_TOKENS
 from google import genai
 from config import GEMINI_API_KEY, GEMINI_MODEL
-from personas.sherlock import SHERLOCK
-from personas.yoda import YODA
-from personas.lady_whistledown import LADY_WHISTLEDOWN
-from personas.phil import PHIL
-from personas.barney import BARNEY
+from personas.gate import GATE
+from personas.cat import CAT
+from personas.ssb import SSB
+from personas.upsc import UPSC
+from personas.ai_engineer import AI_ENGINEER
+from personas.software_engineer import SOFTWARE_ENGINEER
+from personas.devops import DEVOPS
+from personas.backend import BACKEND
+from personas.data_scientist import DATA_SCIENTIST
 from prompts.system_prompt import build_system_prompt
 from rag import load_pdf, split_into_chunks, create_collection, search_collection
 from agent import search_web, needs_web_search
@@ -13,11 +17,16 @@ from agent import search_web, needs_web_search
 #To add a new persona, just import it
 # and add one line here. Nothing else changes.
 PERSONAS = {
-    "1": SHERLOCK,
-    "2": YODA,
-    "3": LADY_WHISTLEDOWN,
-    "4": PHIL,
-    "5": BARNEY,
+    "1": GATE,
+    "2": CAT,
+    "3": SSB,
+    "4": UPSC,
+    "5": AI_ENGINEER,
+    "6": SOFTWARE_ENGINEER,
+    "7": DEVOPS,
+    "8": BACKEND,
+    "9": DATA_SCIENTIST,
+    
 }
 
 
@@ -25,12 +34,16 @@ def show_menu():
     print("\n" + "═" * 50)
     print("🎭 AI PERSONA ROLEPLAY ENGINE")
     print("═" * 50)
-    print("Choose your character:\n")
-    print("  1. Sherlock Holmes 🔍")
-    print("  2. Yoda 🌿")
-    print("  3. Lady Whistledown 📜")
-    print("  4. Phil Dunphy 🏡")
-    print("  5. Barney Stinson 👔")
+    print("Choose your Exam:\n")
+    print("  1. Gate")
+    print("  2. Cat")
+    print("  3. SSB")
+    print("  4. UPSC")
+    print("  5. AI Engineer")
+    print("  6. Software Engineer")
+    print("  7. Devops")
+    print("  8. Backend")
+    print("  9. Data Scientist")
     print("\n  Type 'quit' to exit")
     print("═" * 50)
 
