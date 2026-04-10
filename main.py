@@ -14,8 +14,6 @@ from prompts.system_prompt import build_system_prompt
 from rag import load_pdf, split_into_chunks, create_collection, search_collection
 from agent import search_web, needs_web_search
 
-#To add a new persona, just import it
-# and add one line here. Nothing else changes.
 PERSONAS = {
     "1": GATE,
     "2": CAT,
@@ -124,8 +122,6 @@ def chat_with_persona(persona: dict):
     contents=conversation_history,
     config={
         "system_instruction": system_prompt,
-        # WHY: Limits response length so replies feel
-        # like natural conversation not an essay
         "max_output_tokens": MAX_OUTPUT_TOKENS
     }
 )
