@@ -28,9 +28,6 @@ def call_gemini_sdk(
         contents=prompt,
         config={
             "system_instruction": system_prompt or "",
-            # WHY IN CONFIG: Temperature is a generation
-            # parameter — it controls HOW the model generates,
-            # not WHAT it generates. Belongs in config block.
             "temperature": temperature,
         }
     )
@@ -49,7 +46,7 @@ if __name__ == "__main__":
 
     system = build_system_prompt(SHERLOCK)
 
-    # ── TEST 1: Few-Shot Prompting ────────────────────────────
+    # ──Few-Shot Prompting ────────────────────────────
     print("\n" + "═"*50)
     print("TEST 1: Few-Shot Prompting")
     print("═"*50)
@@ -80,7 +77,7 @@ if __name__ == "__main__":
         temperature=TEMPERATURE_PRECISE
     )
 
-    # ── TEST 2: Chain-of-Thought Prompting ───────────────────
+    # ──Chain-of-Thought Prompting ───────────────────
     print("\n" + "═"*50)
     print("TEST 2: Chain-of-Thought Prompting")
     print("═"*50)
@@ -100,7 +97,7 @@ if __name__ == "__main__":
         temperature=TEMPERATURE_PRECISE
     )
 
-    # ── TEST 3: Temperature Comparison ───────────────────────
+    # ──Temperature Comparison ───────────────────────
     print("\n" + "═"*50)
     print("TEST 3: Temperature Comparison")
     print("═"*50)
