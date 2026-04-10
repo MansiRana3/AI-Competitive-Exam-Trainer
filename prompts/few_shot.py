@@ -1,13 +1,3 @@
-# prompts/few_shot.py
-# ─────────────────────────────────────────────────────────────
-# WHAT THIS FILE DOES:
-# Builds few-shot prompts by prepending examples to a question.
-# This teaches the model the exact response FORMAT we want.
-#
-# BEST PRACTICE: Separation of Concerns
-# Few-shot logic lives here, separate from other prompt types.
-# ─────────────────────────────────────────────────────────────
-
 
 def build_few_shot_prompt(examples: list, question: str) -> str:
     """
@@ -30,21 +20,13 @@ def build_few_shot_prompt(examples: list, question: str) -> str:
         ]
     """
 
-    # Build the examples section
-    # WHY THIS FORMAT: Clear Input/Output labels help the
-    # model understand the pattern we want it to follow
     prompt = "Here are some examples of how to respond:\n\n"
 
     for i, example in enumerate(examples, 1):
         prompt += f"Example {i}:\n"
         prompt += f"Input: {example['input']}\n"
         prompt += f"Output: {example['output']}\n\n"
-
-    # Add the actual question at the end
-    # WHY AT THE END: Model reads examples first, learns
-    # the pattern, then applies it to the new question
-    prompt += f"Now respond to this in the same style:\n"
-    prompt += f"Input: {question}\n"
+ompt += f"Input: {question}\n"
     prompt += f"Output:"
 
     return prompt
