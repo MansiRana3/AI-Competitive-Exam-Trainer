@@ -24,10 +24,6 @@ DEFAULT_TEMPERATURE = 1.0
 MAX_OUTPUT_TOKENS = 1024
 
 print("✅ config.py loaded — API key found, constants ready.")
-# ── Temperature Presets ───────────────────────────────────────
-# WHY PRESETS: Instead of remembering numbers, use named
-# presets that describe what each temperature actually does.
-# This is more readable and easier to change later.
 
 TEMPERATURE_PRECISE = 0.2   # factual, consistent, low creativity
 TEMPERATURE_BALANCED = 1.0  # natural, default for conversation
